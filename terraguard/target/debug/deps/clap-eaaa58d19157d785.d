@@ -1,0 +1,7 @@
+/Users/stephenawuah/sre1/terraguard/terraguard/target/debug/deps/libclap-eaaa58d19157d785.rmeta: /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/lib.rs /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.rs /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.md
+
+/Users/stephenawuah/sre1/terraguard/terraguard/target/debug/deps/clap-eaaa58d19157d785.d: /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/lib.rs /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.rs /Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.md
+
+/Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/lib.rs:
+/Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.rs:
+/Users/stephenawuah/.cargo/registry/src/index.crates.io-6f17d22bba15001f/clap-4.5.37/src/../examples/demo.md:

@@ -1,0 +1,24 @@
+{
+  "resource_changes": [
+    {
+      "address": "aws_security_group.my_group",
+      "change": {
+        "after": {
+          "ingress": [
+            {
+              "cidr_blocks": ["10.0.0.0/24"],
+              "from_port": 22,
+              "to_port": 22
+            },
+            {
+              "cidr_blocks": ["10.0.0.0/24"],
+              "from_port": 30200,
+              "to_port": 30200
+            }
+          ]
+        }
+      }
+    }
+  ]
+}
+
