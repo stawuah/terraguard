@@ -1,7 +1,6 @@
-mod parser;
+
 mod rules;
 mod types;
-mod utils;
 mod report;
 
 use crate::report::print_report;
@@ -30,7 +29,7 @@ fn main() {
         process::exit(1);
     });
 
-    let issues = rules::validate(&plan);
+    let issues = rules::fast_validate(&plan);
     print_report(&issues);
 }
 
