@@ -1,6 +1,5 @@
-use serde::Deserialize;
+use serde::{Deserialize, Serialize};
 use colored::*;
-
 
 #[derive(Debug, Deserialize)]
 pub struct Plan {
@@ -18,14 +17,15 @@ pub struct Change {
     pub after: Option<serde_json::Value>,
 }
 
-#[derive(Debug)]
-#[derive(PartialEq)]
+#[derive(Debug, Clone, Eq, Hash, PartialEq, Deserialize, Serialize)]
 pub enum Severity {
     Low,
     Medium,
     High,
 }
 
+
+#[derive(Debug, Clone, Deserialize, Serialize)]
 pub struct Issue {
     pub resource: String,
     pub message: String,

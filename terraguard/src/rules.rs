@@ -121,7 +121,7 @@ impl FastValidator {
     }
 
     /// Check security group for issues
-    fn check_security_group(&self, address: String, resource: &Value) -> Vec<Issue> {
+   pub  fn check_security_group(&self, address: String, resource: &Value) -> Vec<Issue> {
         let mut issues = Vec::new();
         
         // Check for open ingress
@@ -200,7 +200,7 @@ impl FastValidator {
     }
 
     /// Check ports against allowed and disallowed lists
-    fn check_ports(&self, resource_address: String, resource: &Value) -> Vec<Issue> {
+   pub  fn check_ports(&self, resource_address: String, resource: &Value) -> Vec<Issue> {
         let mut issues = Vec::new();
 
         // Check ingress rules
@@ -304,7 +304,7 @@ impl FastValidator {
     }
     
     /// Check EC2 instance configuration for security issues
-    fn check_ec2_instance(&self, address: String, resource: &Value) -> Vec<Issue> {
+   pub fn check_ec2_instance(&self, address: String, resource: &Value) -> Vec<Issue> {
         let mut issues = Vec::new();
     
         // Check for public IP assignment
@@ -335,7 +335,7 @@ impl FastValidator {
     }
     
     /// Check S3 bucket configuration for security issues
-    fn check_s3_bucket(&self, address: String, resource: &Value) -> Vec<Issue> {
+    pub fn check_s3_bucket(&self, address: String, resource: &Value) -> Vec<Issue> {
         let mut issues = Vec::new();
         
         // Check for public access configuration

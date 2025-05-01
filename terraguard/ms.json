@@ -1,0 +1,8 @@
+{
+    "resources": {
+      "sg-service-a": "payment-service",
+      "sg-service-b": "user-service",
+      "sg-service-c": "inventory-service",
+      "sg-kubernetes-nodes": "container-platform"
+    }
+  }

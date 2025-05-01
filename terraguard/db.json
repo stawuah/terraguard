@@ -1,0 +1,8 @@
+{
+    "resources": {
+      "sg-mysql-primary": "database",
+      "sg-mysql-replica": "database",
+      "sg-redis-cache": "database",
+      "sg-backup-system": "database"
+    }
+  }
