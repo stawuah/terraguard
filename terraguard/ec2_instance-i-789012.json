@@ -1,0 +1,17 @@
+{
+    "InstanceId": "i-789012",
+    "InstanceType": "t2.micro",
+    "State": "running",
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-123456",
+            "GroupName": "web-server-sg"
+        }
+    ],
+    "Tags": [
+        {
+            "Key": "Name",
+            "Value": "web-server-1"
+        }
+    ]
+} 

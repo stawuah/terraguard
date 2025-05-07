@@ -1,0 +1,180 @@
+I'll analyze the codebase to list out all the functions and functionalities you've implemented. Let me check the source files.
+
+
+Read file: src/rules.rs
+
+Read file: src/monitor.rs
+Based on my analysis of the codebase, here are all the functions and functionalities you've implemented:
+
+1. **Core CLI Commands** (`main.rs`):
+   - `validate`: Validates Terraform plans for security issues
+   - `monitor`: Runs continuous security monitoring
+   - `metrics`: Displays security metrics for applications
+
+2. **Security Validation** (`rules.rs`):
+   - `FastValidator` struct with methods:
+     - `new()`: Creates a new validator with pre-configured security rules
+     - `validate()`: Validates a plan and returns security issues
+     - `check_security_group()`: Checks security groups for issues
+     - `check_open_ingress()`: Checks for open ingress from 0.0.0.0/0
+     - `check_ports()`: Validates ports against allowed/disallowed lists
+     - `check_ec2_instance()`: Validates EC2 instance configurations
+     - `check_s3_bucket()`: Validates S3 bucket configurations
+     - `fast_validate()`: Quick validation of Terraform plans
+
+3. **Monitoring System** (`monitor.rs`):
+   - `DriftMonitor` struct with methods:
+     - `new()`: Creates a new drift monitor
+     - `map_resource_to_app()`: Maps resources to applications
+     - `hash_config()`: Generates configuration hashes
+     - `check_resource()`: Checks resources for drift
+     - `validate_resource()`: Validates resource configurations
+     - `get_application_metrics()`: Gets metrics for all applications
+     - `get_app_metrics()`: Gets metrics for a specific application
+     - `get_recent_drifts()`: Gets recent drift events
+     - `get_app_drifts()`: Gets drifts for a specific application
+     - `get_resource_history()`: Gets history for a specific resource
+
+4. **Data Structures**:
+   - `ResourceHistory`: Tracks resource state over time
+   - `ResourceState`: Represents a point-in-time resource state
+   - `DriftEvent`: Represents configuration drift events
+   - `ApplicationMetrics`: Tracks metrics per application
+   - `Issue`: Represents security issues
+   - `Severity`: Enum for issue severity levels
+
+5. **Monitoring Functions**:
+   - `monitor_resources()`: Main monitoring loop
+   - `process_resource_file()`: Processes individual resource files
+   - `print_current_metrics()`: Displays current metrics
+   - `print_recent_drifts()`: Shows recent drift events
+   - `display_metrics()`: Displays metrics in text or JSON format
+
+6. **Security Checks**:
+   - Port validation (allowed/disallowed ports)
+   - Security group validation
+   - Open ingress detection
+   - EC2 instance security
+   - S3 bucket security
+   - Resource tagging compliance
+
+7. **Metrics and Reporting**:
+   - Resource count tracking
+   - Issue severity tracking
+   - Drift detection and counting
+   - Historical state tracking
+   - Application-level metrics
+   - JSON and text output formats
+
+8. **Configuration Management**:
+   - Resource to application mapping
+   - Port service mapping
+   - Security rule configuration
+   - State history management
+
+The codebase implements a comprehensive security monitoring system for Terraform infrastructure that:
+- Detects security misconfigurations
+- Monitors for configuration drift
+- Tracks security metrics over time
+- Provides detailed reporting
+- Supports multiple output formats
+- Maintains historical data
+- Maps resources to applications
+- Validates various AWS resource types
+
+The system is designed to be:
+- Fast (uses Rust for performance)
+- Comprehensive (covers multiple resource types)
+- Configurable (supports custom rules and mappings)
+- Maintainable (well-structured code)
+- User-friendly (clear CLI interface)
+I'll analyze the codebase to list out all the functions and functionalities you've implemented. Let me check the source files.
+
+
+Read file: src/rules.rs
+
+Read file: src/monitor.rs
+Based on my analysis of the codebase, here are all the functions and functionalities you've implemented:
+
+1. **Core CLI Commands** (`main.rs`):
+   - `validate`: Validates Terraform plans for security issues
+   - `monitor`: Runs continuous security monitoring
+   - `metrics`: Displays security metrics for applications
+
+2. **Security Validation** (`rules.rs`):
+   - `FastValidator` struct with methods:
+     - `new()`: Creates a new validator with pre-configured security rules
+     - `validate()`: Validates a plan and returns security issues
+     - `check_security_group()`: Checks security groups for issues
+     - `check_open_ingress()`: Checks for open ingress from 0.0.0.0/0
+     - `check_ports()`: Validates ports against allowed/disallowed lists
+     - `check_ec2_instance()`: Validates EC2 instance configurations
+     - `check_s3_bucket()`: Validates S3 bucket configurations
+     - `fast_validate()`: Quick validation of Terraform plans
+
+3. **Monitoring System** (`monitor.rs`):
+   - `DriftMonitor` struct with methods:
+     - `new()`: Creates a new drift monitor
+     - `map_resource_to_app()`: Maps resources to applications
+     - `hash_config()`: Generates configuration hashes
+     - `check_resource()`: Checks resources for drift
+     - `validate_resource()`: Validates resource configurations
+     - `get_application_metrics()`: Gets metrics for all applications
+     - `get_app_metrics()`: Gets metrics for a specific application
+     - `get_recent_drifts()`: Gets recent drift events
+     - `get_app_drifts()`: Gets drifts for a specific application
+     - `get_resource_history()`: Gets history for a specific resource
+
+4. **Data Structures**:
+   - `ResourceHistory`: Tracks resource state over time
+   - `ResourceState`: Represents a point-in-time resource state
+   - `DriftEvent`: Represents configuration drift events
+   - `ApplicationMetrics`: Tracks metrics per application
+   - `Issue`: Represents security issues
+   - `Severity`: Enum for issue severity levels
+
+5. **Monitoring Functions**:
+   - `monitor_resources()`: Main monitoring loop
+   - `process_resource_file()`: Processes individual resource files
+   - `print_current_metrics()`: Displays current metrics
+   - `print_recent_drifts()`: Shows recent drift events
+   - `display_metrics()`: Displays metrics in text or JSON format
+
+6. **Security Checks**:
+   - Port validation (allowed/disallowed ports)
+   - Security group validation
+   - Open ingress detection
+   - EC2 instance security
+   - S3 bucket security
+   - Resource tagging compliance
+
+7. **Metrics and Reporting**:
+   - Resource count tracking
+   - Issue severity tracking
+   - Drift detection and counting
+   - Historical state tracking
+   - Application-level metrics
+   - JSON and text output formats
+
+8. **Configuration Management**:
+   - Resource to application mapping
+   - Port service mapping
+   - Security rule configuration
+   - State history management
+
+The codebase implements a comprehensive security monitoring system for Terraform infrastructure that:
+- Detects security misconfigurations
+- Monitors for configuration drift
+- Tracks security metrics over time
+- Provides detailed reporting
+- Supports multiple output formats
+- Maintains historical data
+- Maps resources to applications
+- Validates various AWS resource types
+
+The system is designed to be:
+- Fast (uses Rust for performance)
+- Comprehensive (covers multiple resource types)
+- Configurable (supports custom rules and mappings)
+- Maintainable (well-structured code)
+- User-friendly (clear CLI interface)

@@ -1,7 +1,0 @@
-{
-    "resources": {
-      "sg-12345": "frontend-app",
-      "sg-67890": "backend-api",
-      "rds-database1": "data-service"
-    }
-  }

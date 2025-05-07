@@ -1,0 +1,29 @@
+{
+    "InstanceId": "i-789012",
+    "InstanceType": "t2.micro",
+    "State": "running",
+    "SecurityGroups": [
+        {
+            "GroupId": "sg-123456",
+            "GroupName": "web-server-sg",
+            "Description": "Security group for web servers",
+            "VpcId": "vpc-123456",
+            "IpPermissions": [
+                {
+                    "FromPort": 443,
+                    "ToPort": 443,
+                    "IpProtocol": "tcp",
+                    "IpRanges": [
+                        {
+                            "CidrIp": "0.0.0.0/0"
+                        }
+                    ]
+                }
+            ]
+        }
+    ],
+    "Tags": {
+        "Name": "web-server-sg",
+        "Environment": "production"
+    }
+}

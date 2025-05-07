@@ -1,0 +1,2 @@
+tg monitor --directory ./resources --mapping ./mapping.json
+tg metrics -f json

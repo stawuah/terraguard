@@ -1,0 +1,7 @@
+{
+    "resources": {
+        "sg-123456": "web-app",
+        "i-789012": "web-app",
+        "bucket-345678": "data-storage"
+    }
+} 

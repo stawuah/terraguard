@@ -2,10 +2,9 @@ mod rules;
 mod types;
 mod report;
 mod monitor;
-mod monitor_cli;
 
 use crate::report::print_report;
-use crate::monitor_cli::run_monitor_cli;
+use crate::monitor::{monitor_resources, display_metrics};
 use clap::{Parser, Subcommand};
 use serde_json::Value;
 use std::fs;
@@ -30,7 +29,31 @@ enum Commands {
     
     /// Run continuous security monitoring
     #[clap(name = "monitor")]
-    Monitor,
+    Monitor {
+        /// Directory containing resource configuration files to monitor
+        #[clap(long, short = 'd')]
+        directory: String,
+        
+        /// Resource mapping file that maps resources to applications
+        #[clap(long, short = 'm')]
+        mapping: String,
+        
+        /// Interval in seconds between checks
+        #[clap(long, short = 'i', default_value = "60")]
+        interval: u64,
+    },
+    
+    /// Display the latest metrics for all applications
+    #[clap(name = "metrics")]
+    Metrics {
+        /// Optional application name to filter metrics
+        #[clap(long, short = 'a')]
+        application: Option<String>,
+        
+        /// Output format (text, json)
+        #[clap(long, short = 'f', default_value = "text")]
+        format: String,
+    }
 }
 
 fn main() {
@@ -40,8 +63,11 @@ fn main() {
         Commands::Validate { input } => {
             run_validation(input);
         },
-        Commands::Monitor => {
-            run_monitor_cli();
+        Commands::Monitor { directory, mapping, interval } => {
+            monitor_resources(&directory, &mapping, interval);
+        },
+        Commands::Metrics { application, format } => {
+            display_metrics(application, &format);
         }
     }
 }

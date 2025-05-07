@@ -1,25 +1,5 @@
-# [package]
-# name = "terraguard"  # This is the name of the binary that will be created
-# version = "0.1.0"
-# edition = "2021"
-
-# [dependencies]
-# serde = { version = "1.0", features = ["derive"] }
-# serde_json = "1.0"
-# clap = { version = "4.0", features = ["derive"] }
-# colored = "2.0"
-# chrono = { version = "0.4.41", features = ["serde"] }
-# [[bin]]
-# name = "tg"
-# path = "src/main.rs"
-
-# [[bin]]
-# name = "terra"
-# path = "src/main.rs"
-
-
 [package]
-name = "terraguard"
+name = "terraguard"  # This is the name of the binary that will be created
 version = "0.1.0"
 edition = "2021"
 
@@ -29,13 +9,11 @@ serde_json = "1.0"
 clap = { version = "4.0", features = ["derive"] }
 colored = "2.0"
 chrono = { version = "0.4.41", features = ["serde"] }
+[[bin]]
+name = "tg"
+path = "src/main.rs"
 
-# Binary for the main application
 [[bin]]
 name = "terra"
 path = "src/main.rs"
 
-# Binary specifically for the monitoring CLI
-[[bin]]
-name = "tg"
-path = "src/monitor_cli.rs"

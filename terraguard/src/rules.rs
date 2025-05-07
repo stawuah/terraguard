@@ -1,4 +1,3 @@
-
 use serde_json::Value;
 use crate::types::{Issue, Severity};
 use std::collections::{HashMap, HashSet};
@@ -128,7 +127,56 @@ impl FastValidator {
         issues.extend(self.check_open_ingress(address.clone(), resource));
         
         // Check for disallowed ports
-        issues.extend(self.check_ports(address, resource));
+        issues.extend(self.check_ports(address.clone(), resource));
+        
+        // Check for overly permissive rules
+        if let Some(ingress) = resource.get("ingress").and_then(|i| i.as_array()) {
+            for rule in ingress {
+                // Check for overly permissive CIDR blocks
+                if let Some(blocks) = rule.get("cidr_blocks").and_then(|b| b.as_array()) {
+                    for cidr in blocks {
+                        if let Some(cidr_str) = cidr.as_str() {
+                            if cidr_str == "0.0.0.0/0" {
+                                let port_info = if let (Some(from), Some(to)) = (
+                                    rule.get("from_port").and_then(|p| p.as_i64()), 
+                                    rule.get("to_port").and_then(|p| p.as_i64())
+                                ) {
+                                    let from = from as i32;
+                                    let to = to as i32;
+                                    
+                                    // Check if any of these ports are particularly sensitive
+                                    let mut port_text = format!("ports {}-{}", from, to);
+                                    
+                                    // If it's a single port, try to identify the service
+                                    if from == to && self.port_services.contains_key(&from) {
+                                        port_text = format!("port {} ({})", from, self.port_services[&from]);
+                                    }
+                                    
+                                    port_text
+                                } else {
+                                    "all ports".to_string()
+                                };
+                                
+                                issues.push(Issue {
+                                    resource: address.clone(),
+                                    message: format!("Open ingress from 0.0.0.0/0 for {}", port_info),
+                                    severity: Severity::High,
+                                });
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        
+        // Check for missing security controls
+        if !resource.get("tags").is_some() {
+            issues.push(Issue {
+                resource: address.clone(),
+                message: "Security group is missing required tags".to_string(),
+                severity: Severity::Medium,
+            });
+        }
         
         issues
     }
@@ -381,3 +429,4 @@ pub fn fast_validate(plan: &Value) -> Vec<Issue> {
     let mut validator = FastValidator::new();
     validator.validate(plan)
 }
+
